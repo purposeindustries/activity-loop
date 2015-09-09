@@ -68,6 +68,26 @@ Note: the timer restarts every time when `activity` happens.
 
 If you don't need the loop instance, it's recommended to call `destroy()` method to avoid memory leaks.
 
+### .pause([paused], [options])
+
+#### paused
+
+Whether the loop has to be paused
+
+Type: `Boolean`
+Default: `true`
+
+#### options
+
+Type: `Object`
+Default: `{}`
+
+##### options.activity
+
+You can enforce an immediate `activity` event to be fired after coming back from paused mode
+
+Type: `Boolean`
+Default: `false`
 
 The loop instance is an [event emitter](https://nodejs.org/api/events.html) so you can do the following:
 
