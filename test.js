@@ -142,6 +142,23 @@ test('can pause and restart the loop', t => {
   t.is(spy.args.length, 4)
 
   t.end()
+})
 
+test('can enforce immediate activity after disabling pause', t => {
+  const localLoop = proxyquire('./lib/index', {
+    './utils/set-timeout': fn => fn()
+  })
+  const mock = new EventEmitter()
+  const spy = sinon.spy()
+  const l = localLoop(mock)
 
+  l.on('activity', spy)
+
+  l.pause()
+  l.pause(false, {
+    activity: true
+  })
+
+  t.is(spy.calledOnce, true)
+  t.end()
 })

@@ -1,3 +1,4 @@
+/* global document */
 import {Loop} from '../lib'
 
 const target = document.getElementById('target')
