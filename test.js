@@ -63,8 +63,10 @@ test('activity happens after user interaction', t => {
   mock.emit('click')
   mock.emit('mouseenter')
   mock.emit('mousemove')
+  mock.emit('keyup')
+  mock.emit('keydown')
 
-  t.is(spy.args.length, 3)
+  t.is(spy.args.length, 5)
   l.destroy()
   t.end()
 })

@@ -40,7 +40,7 @@ var _utilsSetTimeout = require('./utils/set-timeout');
 
 var _utilsSetTimeout2 = _interopRequireDefault(_utilsSetTimeout);
 
-var events = ['click', 'mousemove', 'mouseenter'];
+var events = ['click', 'mousemove', 'mouseenter', 'keyup', 'keydown'];
 
 var Loop = (function (_EventEmitter) {
   _inherits(Loop, _EventEmitter);
