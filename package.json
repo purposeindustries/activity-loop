@@ -1,0 +1,55 @@
+{
+  "name": "activity-loop",
+  "version": "1.0.0",
+  "description": "Checks whether a user interaction happened on the given element",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "xo !dist",
+    "posttest": "ava",
+    "build": "babel lib -d dist",
+    "build-example": "browserify example/main.js --global-transform=babelify -o example/bundle.js",
+    "prepublish": "npm test && npm run build",
+    "cover": "istanbul cover $(npm bin)/ava test.js",
+    "coveralls": "npm run cover && cat ./coverage/lcov.info | $(npm bin)/coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/purposeindustries/activity-loop.git"
+  },
+  "keywords": [
+    "dom",
+    "html",
+    "element",
+    "activity",
+    "user",
+    "interaction",
+    "mouse",
+    "es6",
+    "esnext",
+    "es2015"
+  ],
+  "author": "ruff1986",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/purposeindustries/activity-loop/issues"
+  },
+  "homepage": "https://github.com/purposeindustries/activity-loop#readme",
+  "xo": {
+    "space": true,
+    "esnext": true,
+    "semicolon": false,
+    "envs": [
+      "node"
+    ]
+  },
+  "devDependencies": {
+    "ava": "git://github.com/sindresorhus/ava.git",
+    "babel": "^5.8.23",
+    "browserify": "^11.0.1",
+    "component-emitter": "^1.2.0",
+    "coveralls": "^2.11.4",
+    "istanbul": "^0.3.19",
+    "proxyquire": "^1.7.2",
+    "sinon": "^1.16.1"
+  }
+}
