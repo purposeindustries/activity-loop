@@ -1,6 +1,8 @@
 activity-loop
 ===============
 
+[![Coverage Status](https://coveralls.io/repos/purposeindustries/activity-loop/badge.svg?branch=master&service=github)](https://coveralls.io/github/purposeindustries/activity-loop?branch=master) [![Build Status](https://travis-ci.org/purposeindustries/activity-loop.svg)](https://travis-ci.org/purposeindustries/activity-loop)
+
 Checks whether a user interaction happened on the given element.
 
 It's useful when you want to change an element's state when the user makes some interactions on the given element like clicking on it, moving the mouse cursor on the surface, etc. Or the other way round, you want to change the state when the user does nothing since the latest activity happened.
