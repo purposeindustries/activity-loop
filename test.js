@@ -112,3 +112,36 @@ test('destruct', t => {
   t.is(spy.args.length, 4)
   t.end()
 })
+
+test('can pause and restart the loop', t => {
+  const localLoop = proxyquire('./lib/index', {
+    './utils/set-timeout': fn => fn()
+  })
+  const mock = new EventEmitter()
+  const spy = sinon.spy()
+  const l = localLoop(mock)
+
+  l.on('activity', spy)
+
+  mock.emit('click')
+  mock.emit('click')
+
+  t.is(spy.args.length, 2)
+
+  l.pause()
+
+  mock.emit('click')
+  // still 2
+  t.is(spy.args.length, 2)
+
+  l.pause(false)
+
+  mock.emit('click')
+  mock.emit('click')
+
+  t.is(spy.args.length, 4)
+
+  t.end()
+
+
+})

@@ -6,6 +6,8 @@ var _lib = require('../lib');
 var target = document.getElementById('target');
 var loop = new _lib.Loop(target);
 
+loop.pause();
+
 loop.on('activity', function () {
   console.log('activity');
   target.classList.add('active');
@@ -14,6 +16,10 @@ loop.on('inactivity', function () {
   console.log('inactivity');
   target.classList.remove('active');
 });
+
+setTimeout(function () {
+  loop.pause(false);
+}, 3000);
 
 },{"../lib":2}],2:[function(require,module,exports){
 'use strict';
@@ -79,6 +85,11 @@ var Loop = (function (_EventEmitter) {
   }
 
   _createClass(Loop, [{
+    key: 'pause',
+    value: function pause(value) {
+      this.paused = value == null ? true : !!value;
+    }
+  }, {
     key: 'restart',
     value: function restart() {
       if (this.timer) {
@@ -99,6 +110,9 @@ var Loop = (function (_EventEmitter) {
   }, {
     key: 'activity',
     value: function activity() {
+      if (this.paused) {
+        return;
+      }
       this.emit('activity');
       this.restart();
     }
