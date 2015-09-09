@@ -1,6 +1,6 @@
 {
   "name": "activity-loop",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Checks whether a user interaction happened on the given element",
   "main": "dist/index.js",
   "scripts": {
