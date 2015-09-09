@@ -36,8 +36,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== 'function' 
 
 var _events = require('events');
 
-var _events2 = _interopRequireDefault(_events);
-
 var _utilsSetTimeout = require('./utils/set-timeout');
 
 var _utilsSetTimeout2 = _interopRequireDefault(_utilsSetTimeout);
@@ -138,7 +136,7 @@ var Loop = (function (_EventEmitter) {
   }]);
 
   return Loop;
-})(_events2['default']);
+})(_events.EventEmitter);
 
 loop.Loop = Loop;
 
