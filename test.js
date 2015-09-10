@@ -162,3 +162,38 @@ test('can enforce immediate activity after disabling pause', t => {
   t.is(spy.calledOnce, true)
   t.end()
 })
+
+test('prevent mousemove to be fired twice if the position is still the same', t => {
+  const mock = new EventEmitter()
+  const spy = sinon.spy()
+
+  loop(mock, {
+    activity: spy
+  })
+
+  mock.emit('mousemove', {
+    clientX: 10,
+    clientY: 10,
+    type: 'mousemove'
+  })
+
+  t.is(spy.calledOnce, true)
+
+  mock.emit('mousemove', {
+    clientX: 11,
+    clientY: 10,
+    type: 'mousemove'
+  })
+
+  t.is(spy.args.length, 2)
+
+  mock.emit('mousemove', {
+    clientX: 11,
+    clientY: 10,
+    type: 'mousemove'
+  })
+
+  t.is(spy.args.length, 2)
+
+  t.end()
+})
