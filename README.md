@@ -1,7 +1,6 @@
 activity-loop
 ===============
-
-[![Coverage Status](https://coveralls.io/repos/purposeindustries/activity-loop/badge.svg?branch=master&service=github)](https://coveralls.io/github/purposeindustries/activity-loop?branch=master) [![Build Status](https://travis-ci.org/purposeindustries/activity-loop.svg)](https://travis-ci.org/purposeindustries/activity-loop)
+[![Build Status](https://circleci.com/gh/purposeindustries/activity-loop.svg?&style=shield)](https://circleci.com/gh/purposeindustries/activity-loop) [![Coverage Status](https://coveralls.io/repos/purposeindustries/activity-loop/badge.svg?branch=master&service=github)](https://coveralls.io/github/purposeindustries/activity-loop?branch=master)
 
 Checks whether a user interaction happened on the given element.
 
